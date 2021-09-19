@@ -16,9 +16,9 @@
         <div class="row justify-content-center">
             <div class="col-sm-5">
                 <h2>Todo App</h2>
-                <form method="GET">
+                <form th:action ="@{/insert}" method="POST">
                     <label for="title" >New Todo</label>
-                    <input id="title" type="text" class="form-control" name="newTodo"/>
+                    <input id="title" type="text" class="form-control" name="title"/>
                     <button id="send" class="btn btn-primary mt-2 btn-block">Send</button>
                 </form>
                 <div class="card mt-2" th:each="todo : ${todoList}">
