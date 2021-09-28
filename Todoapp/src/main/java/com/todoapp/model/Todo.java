@@ -1,6 +1,9 @@
 package com.todoapp.model;
 
 import javax.persistence.*;
+
+import com.sun.istack.NotNull;
+
 import java.time.LocalDateTime;
 
 @Entity
@@ -10,13 +13,16 @@ public class Todo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", unique = true, nullable = false)
     private Long id;
-
+	
+	@NotNull
     @Column(name = "title")
     private String title;
-
+	
+	@NotNull
     @Column(name = "create_date")
     private LocalDateTime createDate;
 
+	@NotNull
     @Column(name = "complete")
     private int complete;
 

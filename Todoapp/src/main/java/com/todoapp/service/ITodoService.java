@@ -2,8 +2,14 @@ package com.todoapp.service;
 
 import java.util.List;
 
+import com.todoapp.model.DeleteForm;
 import com.todoapp.model.Todo;
+import com.todoapp.model.TopForm;
 
 public interface ITodoService {
-List<Todo> findAllTodo();
+	List<Todo> findAllTodo();
+	
+	String create(TopForm form);
+	
+	String delete(DeleteForm form);
 }
