@@ -20,17 +20,22 @@
                 <form th:action ="@{/insert}" method="POST">
                     <label for="title" >New Todo</label>
                     <input id="title" type="text" class="form-control" name="title" required/>
-                    <button id="send" class="btn btn-primary mt-2 btn-block">Send</button>
+                    <button id="send" class="btn btn-primary mt-2 btn-block">追加</button>
                 </form>
                
                 <div class="card mt-2" th:each="todo : ${todoList}" >
                     <div class="card-body" >
-                        <input class="radio" type="radio" id="${todo.id}" value="${todo.id}" name="todo.radio">
+
                         <span th:text="${todo.title}"> Todo </span>
-                        
+                        <td>
+                        	<form th:action="@{/edit}" method="POST">
+                        		<input type="submit" class="btn btn-outline-primary" name="edit" value="編集">
+                        		<input type="hidden" name="id" th:value="${todo.id}">
+                        	</form>
+                        </td>
                     	<td>
                         	<form th:action="@{/delete}" method="POST">
-                        		<input type="submit" class="btn btn-outline-primary" name="delete" value="delete">
+                        		<input type="submit" class="btn btn-outline-primary" name="delete" value="削除">
            						<input type="hidden" name="id" th:value="${todo.id}">
                     		</form>
                     	</td>
